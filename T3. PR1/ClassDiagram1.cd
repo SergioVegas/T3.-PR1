@@ -16,7 +16,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="T3._PR1._Pràctica_1.EnegyClass.EnergySystem">
+  <Class Name="T3._PR1._Pràctica_1.EnegyClass.EnergySystem" Collapsed="true">
     <Position X="6.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -31,5 +31,12 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
+  <Interface Name="T3._PR1.EnergyClasses.IEnergyCalculate" Collapsed="true">
+    <Position X="11.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EnergyClasses\IEnergyCalculate.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

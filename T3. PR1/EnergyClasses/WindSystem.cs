@@ -13,7 +13,7 @@ namespace T3._PR1._Pràctica_1.EnegyClass
 
         public WindSystem (double windVelocity) 
         {
-            windVelocity = this.WindVelocity;
+            WindVelocity = windVelocity;
         }
         public  double CalculateEnergy( double windVelocity)
         {

@@ -12,7 +12,7 @@ namespace T3._PR1._Pràctica_1.EnegyClass
         public double WaterFlow {  get; set; }
         public HidroelectricSystem(double waterFlow) 
         {
-            waterFlow = this.WaterFlow;
+            WaterFlow = waterFlow;
         }
         public  double CalculateEnergy( double waterflow)
         {

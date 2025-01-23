@@ -13,7 +13,7 @@ namespace T3._PR1._Pràctica_1.EnegyClass
         
         public SolarSystem(int sunHours )
         {
-            sunHours = this.sunHours;
+            SunHours = sunHours;
         }
         public  double CalculateEnergy(double sunHours)
         {
