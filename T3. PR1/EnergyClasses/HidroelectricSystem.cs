@@ -18,7 +18,7 @@ namespace T3._PR1._Pràctica_1.EnegyClass
         {
             return waterflow * 9.8 * 0.8;
         }
-        public static double CheckMinimumWaterFlow(double waterflow)
+        public override double CheckMinimumWaterFlow(double waterflow)
         {
             bool flag = true;
             string msgMinimum = "El cabl de l'aigua no pot ser menys de 20, torna a introduïr un numero.";

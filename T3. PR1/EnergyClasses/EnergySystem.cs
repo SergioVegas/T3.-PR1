@@ -8,6 +8,8 @@ namespace T3._PR1._Pràctica_1.EnegyClass
 {
     public abstract class EnergySystem
     {
-       
+        public abstract double CheckMinimumEnergySource(double sourceEnergy, double minimumRange);
+
+
     }
 }

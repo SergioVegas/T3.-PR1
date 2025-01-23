@@ -9,6 +9,9 @@ namespace T3._PR1._Pràctica_1.EnegyClass
 {
     public class WindSystem : EnergySystem, IEnergyCalculate
     {
+
+        private string minimumMsg = "La velocitat del vent no pot ser menor a {0}, torna a introduïr un numero.";
+        private double limit =5;
         public double WindVelocity {  get; set; }
 
         public WindSystem (double windVelocity) 
@@ -19,17 +22,17 @@ namespace T3._PR1._Pràctica_1.EnegyClass
         {
             return Math.Pow(windVelocity,3) * 0.2; 
         }
-        public static double CheckMinimumWindVelocity(double windVelocity)
+        public override double CheckMinimumEnergySource(double windVelocity, double  limit)
         {
+
             bool flag = true;
-            string msgMinimum = "La velocitat del vent no pot ser menor a 5, torna a introduïr un numero.";
 
             while (flag)
             {
                 flag = false;
-                if (windVelocity < 5)
+                if (windVelocity < limit)
                 {
-                    Console.WriteLine(msgMinimum);
+                    Console.WriteLine(minimumMsg, limit);
                     flag = true;
                 }
             }
