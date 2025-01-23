@@ -6,6 +6,7 @@
       <HashCode>AAAAAACAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>EnergyClasses\WindSystem.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="T3._PR1._Pràctica_1.EnegyClass.SolarSystem">
     <Position X="8.75" Y="2.75" Width="1.5" />
@@ -13,11 +14,12 @@
       <HashCode>AAAAAQCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>EnergyClasses\SolarSystem.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="T3._PR1._Pràctica_1.EnegyClass.EnergySystem">
     <Position X="6.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>EnergyClasses\EnergySystem.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -27,6 +29,7 @@
       <HashCode>AAAAAACAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>EnergyClasses\HidroelectricSystem.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

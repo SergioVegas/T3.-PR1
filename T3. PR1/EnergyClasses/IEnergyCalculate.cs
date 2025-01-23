@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace T3._PR1._Pràctica_1.EnegyClass
+namespace T3._PR1.EnergyClasses
 {
-    public abstract class EnergySystem
+    interface  IEnergyCalculate
     {
-       
+        public abstract double CalculateEnergy(double energy);
     }
 }
