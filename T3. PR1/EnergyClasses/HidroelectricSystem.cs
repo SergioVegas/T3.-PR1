@@ -9,6 +9,8 @@ namespace T3._PR1._Pràctica_1.EnegyClass
 {
     public class HidroelectricSystem : EnergySystem, IEnergyCalculate
     {
+        private string minimumMsg = "El caudal de l'aigua no pot ser menor a {0}, torna a introduïr un numero.";
+        private double limit = 20;
         public double WaterFlow {  get; set; }
         public HidroelectricSystem(double waterFlow) 
         {
@@ -18,22 +20,21 @@ namespace T3._PR1._Pràctica_1.EnegyClass
         {
             return waterflow * 9.8 * 0.8;
         }
-        public override double CheckMinimumWaterFlow(double waterflow)
+        public override double CheckMinimumEnergySource(double windVelocity, double limit)
         {
+
             bool flag = true;
-            string msgMinimum = "El cabl de l'aigua no pot ser menys de 20, torna a introduïr un numero.";
 
             while (flag)
             {
                 flag = false;
-                if (waterflow < 1)
+                if (windVelocity < limit)
                 {
-                    Console.WriteLine(msgMinimum);
+                    Console.WriteLine(minimumMsg, limit);
                     flag = true;
                 }
             }
-            return waterflow;
+            return windVelocity;
         }
-
     }
 }
