@@ -11,11 +11,14 @@ namespace T3.PR1
             "1. Iniciar simulació : Configurar un dels nostres sistemes d'energia.\n" +
             "2. Veure els informes de les simulacions fetes.\n" +
             "3. Sortir de la aplicació";
-        const string MsgMenuEnergy = "Has escollit iniciar una simulació!\n" + "Pot escollir entre les següents energies, posant el numero corresponent:\n 1.Solar\n 2.Eolica\n 3.Hidraulica.";
+        const string MsgEnergyMenu =  "Pot escollir entre les següents energies, posant el numero corresponent:\n 1.Solar\n 2.Eolica\n 3.Hidraulica.";
+        const string MsgSimulationMenu = "Has escollit iniciar una simulació!\n" + "Cuantes simulacions vols fer? Introdueix un nombre enter entre 1 i 100.";
         const string MsgResgistres = "Aquest son els registres de les simulacions fetes.";
         const string MsgOutApp = "Moltes gràcies per participar en la nostra aplicació! :)";
         const string MsgNoNegative = " Aquest numero no pot ser inferior a 0!";
         const string MsgErrorMenu = "Aquest numero no es cap de les opcions.";
+        const int MaxRangeSimultions = 100;
+        const int MinRangeSimultions = 1;
         public static void Main(string[] args)
         {
 
@@ -24,7 +27,7 @@ namespace T3.PR1
         {
             Console.WriteLine(MsgPresentation);
             Console.WriteLine(MsgMenuExplanation);
-            int menuNumb = int.Parse(Console.ReadLine());
+            int menuNumb = HelperClass.CheckTypeInt();
             bool flag = true;
             while (flag)
             {
@@ -32,9 +35,9 @@ namespace T3.PR1
                 switch (menuNumb)
                 {
                     case 1:
-                        Console.WriteLine(MsgMenuEnergy);
-                        menuNumb = HelperClass.CheckTypeInt();
-                        EnergyMenu(menuNumb);
+                        Console.WriteLine(MsgSimulationMenu);
+                        menuNumb = HelperClass.CheckTypeIntWithRange(MinRangeSimultions, MaxRangeSimultions);
+                        SimulationMenu(menuNumb);
                         break;
                     case 2:
                         Console.WriteLine(MsgResgistres);
@@ -49,12 +52,24 @@ namespace T3.PR1
                 }
             }
         }
+        public static void SimulationMenu(int simulationTry)
+        {
+            while (simulationTry < 0)
+            {
+                for (int i = 0; i < simulationTry; i++)
+                {
+                    Console
+                    int menuNumb = HelperClass.CheckTypeInt();
+                    EnergyMenu(menuNumb);
+                }
+            }   
+        }
         public static void EnergyMenu(int menuNumb)
         {
-            string MsgSunHours = "Introdueix el numero d'hores de sol, que el sistema utilitzarà.";
-            string MsgWindSpeed = "Introdueix la velocitat del vent";
-            string MsgWaterFlow = "Introdueix la força del cabal de l'aigua";
-            Console.WriteLine(MsgMenuEnergy);
+            const string MsgSunHours = "Introdueix el numero d'hores de sol, que el sistema utilitzarà.";
+            const string MsgWindSpeed = "Introdueix la velocitat del vent";
+            const string MsgWaterFlow = "Introdueix la força del cabal de l'aigua";
+            Console.WriteLine(MsgEnergyMenu);
             bool flag = true;
 
             while (flag)

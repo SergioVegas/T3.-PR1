@@ -56,5 +56,29 @@ namespace T3._PR1
             }
             return needCheck;
         }
+        public static int CheckTypeIntWithRange(int minRange, int maxRange)
+        {
+            const string MsgNotInRange = "Aquest numero no esta entre el rang definit.";
+            int needCheck = 0;
+            bool flag = true;
+
+            while (flag)
+            {
+                try
+                {
+                    needCheck = int.Parse(Console.ReadLine());
+                    flag = false;
+                    
+                    if (needCheck < minRange && needCheck > maxRange)
+                    {
+                        flag = true;
+                        Console.WriteLine(MsgNotInRange);
+                    }
+                }
+                catch (FormatException)
+                { Console.WriteLine("Format incorrecte");}
+            }
+            return needCheck;
+        }
     }
 }
