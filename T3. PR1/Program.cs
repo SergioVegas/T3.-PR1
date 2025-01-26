@@ -1,7 +1,7 @@
 ﻿using System;
 using T3._PR1;
 using T3.PR1;
-
+using T3._PR1._Pràctica_1.EnegyClass;
 namespace T3.PR1
 {
     public static class RenovableEnergy
@@ -27,10 +27,11 @@ namespace T3.PR1
         {
             Console.WriteLine(MsgPresentation);
             Console.WriteLine(MsgMenuExplanation);
-            int menuNumb = HelperClass.CheckTypeInt();
+           
             bool flag = true;
             while (flag)
             {
+                int menuNumb = HelperClass.CheckTypeInt();
                 flag = false;
                 switch (menuNumb)
                 {
@@ -54,21 +55,20 @@ namespace T3.PR1
         }
         public static void SimulationMenu(int simulationTry)
         {
-            while (simulationTry < 0)
-            {
                 for (int i = 0; i < simulationTry; i++)
                 {
-                    Console.WriteLine();
+                    Console.WriteLine(MsgEnergyMenu);
                     int menuNumb = HelperClass.CheckTypeInt();
                     EnergyMenu(menuNumb);
-                }
-            }   
+                    Console.WriteLine();
+                }  
         }
         public static void EnergyMenu(int menuNumb)
         {
             const string MsgSunHours = "Introdueix el numero d'hores de sol, que el sistema utilitzarà.";
             const string MsgWindSpeed = "Introdueix la velocitat del vent";
             const string MsgWaterFlow = "Introdueix la força del cabal de l'aigua";
+            DateTime actualDate = DateTime.Now;
             bool flag = true;
 
 
@@ -80,17 +80,20 @@ namespace T3.PR1
                     case 1:
                         Console.WriteLine(MsgSunHours);
                         double sunHours = HelperClass.CheckTypeDouble();
-                        SolarSystem solarium = new SolarSystem(sunHours);
+                        SolarSystem solarium = new SolarSystem(sunHours, actualDate);
+                        solarium.ShowEnergyCalculated(solarium.CalculateEnergy(sunHours));
                         break;
                     case 2:
                         Console.WriteLine(MsgWindSpeed);
                         double windVelocity = HelperClass.CheckTypeDouble();
-                        WindSystem wind = new WindSystem(windVelocity);
+                        WindSystem wind = new WindSystem(windVelocity, actualDate);
+                        wind.ShowEnergyCalculated(wind.CalculateEnergy(windVelocity));
                         break;
                     case 3:
                         Console.WriteLine(MsgWaterFlow);
                         double waterFlow = HelperClass.CheckTypeDouble();
-                        HidroelectricSystem presa = new HidroelectricSystem(waterFlow);
+                        HidroelectricSystem presa = new HidroelectricSystem(waterFlow, actualDate);
+                        presa.ShowEnergyCalculated(presa.CalculateEnergy(waterFlow));
                         break;
                     default:
                         Console.WriteLine(MsgErrorMenu);

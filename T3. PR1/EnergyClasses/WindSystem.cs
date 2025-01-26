@@ -14,7 +14,7 @@ namespace T3._PR1._Pràctica_1.EnegyClass
         private double limit =5;
         public double WindVelocity {  get; set; }
 
-        public WindSystem (double windVelocity) 
+        public WindSystem (double windVelocity, DateTime date) : base(date)
         {
             WindVelocity = windVelocity;
         }
@@ -38,9 +38,10 @@ namespace T3._PR1._Pràctica_1.EnegyClass
             }
             return windVelocity;
         }
-        public override string ShowEnergyCalculated(double energy)
+        public override void ShowEnergyCalculated(double energy)
         {
-            return $"La energia calculada és {energy}";
+            Console.WriteLine();
+            Console.WriteLine( $"La energia calculada és {energy}");
         }
     }
 }

@@ -13,7 +13,7 @@ namespace T3._PR1._Pràctica_1.EnegyClass
         private double limit = 1;
         public double SunHours {  get; set; }
         
-        public SolarSystem(double sunHours )
+        public SolarSystem(double sunHours, DateTime date) : base(date)
         {
             SunHours = sunHours;
         }
@@ -37,9 +37,10 @@ namespace T3._PR1._Pràctica_1.EnegyClass
             }
             return windVelocity;
         }
-        public override string ShowEnergyCalculated(double energy)
+        public override void ShowEnergyCalculated(double energy)
         {
-            return $"La energia calculada és {energy}";
+            Console.WriteLine();
+            Console.WriteLine($"La energia calculada és {energy}");
         }
     }
 }

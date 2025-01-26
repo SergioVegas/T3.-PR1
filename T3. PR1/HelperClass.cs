@@ -69,7 +69,7 @@ namespace T3._PR1
                     needCheck = int.Parse(Console.ReadLine());
                     flag = false;
                     
-                    if (needCheck < minRange && needCheck > maxRange)
+                    if (needCheck < minRange | needCheck > maxRange)
                     {
                         flag = true;
                         Console.WriteLine(MsgNotInRange);
@@ -79,6 +79,27 @@ namespace T3._PR1
                 { Console.WriteLine("Format incorrecte");}
             }
             return needCheck;
+        }
+        //No se si realment es util, per aixo no l'he implementat
+        public static void CheckDate(string date)
+        {
+            const string MsgWrongDay = "No es posible que sigui aquest dia, torna a introduir una data valida.";
+            const string MsgWrongMonth = "No es posible que sigui aquest mes, torna a introduir una data valida.";
+            const string MsgWrongYear = "No es posible que sigui aquest any, torna a introduir una data valida.";
+            const int ActualYear = 2025;
+            const int MinDate = 1;
+            const int MaxDay = 31;
+            const int MaxMonth = 12;
+            string[] arrayDate = date.Split('-', ' ', '/');
+            int[] arrayNumbers = new int[arrayDate.Length];
+            for (int i = 0; i < arrayDate.Length; i++)
+            {
+                arrayNumbers[i] = int.Parse(arrayDate[i]);
+            }
+            if (arrayNumbers[0] > MaxDay | arrayNumbers[0] < MinDate)
+            { Console.WriteLine(MsgWrongDay); }
+            else if (arrayNumbers[1] > MaxMonth | arrayNumbers[0] < MinDate) { Console.WriteLine(MsgWrongMonth); }
+            else if (arrayNumbers[2] == ActualYear) { Console.WriteLine(MsgWrongYear); }
         }
     }
 }
