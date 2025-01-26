@@ -19,8 +19,10 @@ namespace T3.PR1
         const string MsgErrorMenu = "Aquest numero no es cap de les opcions.";
         const int MaxRangeSimultions = 100;
         const int MinRangeSimultions = 1;
+        const int ParametsOnMatrix = 2;
         public static void Main(string[] args)
         {
+
             InitialMenu();
         }
         public static void InitialMenu()
@@ -101,6 +103,19 @@ namespace T3.PR1
                         break;
                 }
             }
-        }      
+        }
+        public static void CreateMatrix(int simulationTry)
+        {
+            EnergySystem[,] energySystems = new EnergySystem[simulationTry, ParametsOnMatrix];
+        }
+        public static void SaveRecordSimulation(int simulationTry, EnergySystem[,]energySystems, WindSystem wind)
+        {
+            for (int m = 0; m < simulationTry; m++)
+            {
+                energySystems[m, 0] = wind.Date;
+                energySystems[m, 1] = wind.ToString();
+                energySystems[m, 2] = wind.
+            }
+        }
     }
 }
