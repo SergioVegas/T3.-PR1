@@ -22,7 +22,9 @@ namespace T3.PR1
         const int ParametsOnMatrix = 2;
         public static void Main(string[] args)
         {
-
+            DateTime[] arrayDateSimulations = new DateTime[0];
+            string[] arrayTypeEnery = new string[0];
+            double[] arrayEnergyCalculated = new double[0];
             InitialMenu();
         }
         public static void InitialMenu()
@@ -112,7 +114,7 @@ namespace T3.PR1
         {
             for (int m = 0; m < simulationTry; m++)
             {
-                energySystems[m, 0] = wind.Date;
+                energySystems[m, 0] = wind.WindVelocity;
                 energySystems[m, 1] = wind.ToString();
                 energySystems[m, 2] = wind.
             }
