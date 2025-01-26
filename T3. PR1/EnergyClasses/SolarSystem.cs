@@ -37,5 +37,9 @@ namespace T3._PR1._Pràctica_1.EnegyClass
             }
             return windVelocity;
         }
+        public override string ShowEnergyCalculated(double energy)
+        {
+            return $"La energia calculada és {energy}";
+        }
     }
 }
