@@ -58,7 +58,7 @@ namespace T3.PR1
             {
                 for (int i = 0; i < simulationTry; i++)
                 {
-                    Console
+                    Console.WriteLine();
                     int menuNumb = HelperClass.CheckTypeInt();
                     EnergyMenu(menuNumb);
                 }
@@ -69,8 +69,8 @@ namespace T3.PR1
             const string MsgSunHours = "Introdueix el numero d'hores de sol, que el sistema utilitzarà.";
             const string MsgWindSpeed = "Introdueix la velocitat del vent";
             const string MsgWaterFlow = "Introdueix la força del cabal de l'aigua";
-            Console.WriteLine(MsgEnergyMenu);
             bool flag = true;
+
 
             while (flag)
             {
