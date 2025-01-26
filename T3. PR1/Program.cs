@@ -57,9 +57,11 @@ namespace T3.PR1
                 }
             }
         }
-        public static void SimulationMenu(int simulationTry)
+        public static void SimulationMenu(int simulationTry, DateTime[] arrayDateSimulations, string[] arrayTypeEnery, double[] arrayEnergyCalculated)
         {
-                for (int i = 0; i < simulationTry; i++)
+            ResizeArrays(arrayDateSimulations, arrayTypeEnery, arrayEnergyCalculated, simulationTry);
+
+            for (int i = 0; i < simulationTry; i++)
                 {
                     Console.WriteLine(MsgEnergyMenu);
                     int menuNumb = HelperClass.CheckTypeInt();
@@ -105,6 +107,16 @@ namespace T3.PR1
                         break;
                 }
             }
+        }
+        public static void FillArray()
+        {
+
+        }
+        public static void ResizeArrays(DateTime[] arrayDate, string[] arrayString, double[]arrayDouble, int newSize)
+        {
+            Array.Resize(ref arrayDate, arrayDate.Length + newSize);
+            Array.Resize(ref arrayString, arrayString.Length + newSize);
+            Array.Resize(ref arrayDouble, arrayDouble.Length + newSize);
         }
         public static void CreateMatrix(int simulationTry)
         {
