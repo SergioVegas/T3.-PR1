@@ -21,7 +21,7 @@ namespace T3.PR1
         const int MinRangeSimultions = 1;
         public static void Main(string[] args)
         {
-
+            InitialMenu();
         }
         public static void InitialMenu()
         {
