@@ -25,6 +25,9 @@ namespace T3.PR1
             string[] arrayRegistres = new string[0];
             bool continueMenu = true;
 
+            Console.WriteLine(MsgPresentation);
+            Console.WriteLine();
+
             while (continueMenu)
             {
                 InitialMenu( ref arrayRegistres, ref continueMenu);
@@ -32,9 +35,11 @@ namespace T3.PR1
         }
         public static void InitialMenu(ref string[] arrayRegistres, ref bool continueMenu)
         {
-            Console.WriteLine(MsgPresentation);
+            const string MsgNoMoreOption = "La primera opció ja s'ha utilitzat. Si us plau, selecciona una altra opció.";
+
             Console.WriteLine(MsgMenuExplanation);
-           
+            Console.WriteLine();
+            bool firstOptionUsed = false;
             bool flag = true;
             while (flag)
             {
@@ -43,9 +48,18 @@ namespace T3.PR1
                 switch (menuNumb)
                 {
                     case 1:
-                        Console.WriteLine(MsgSimulationMenu);
-                        menuNumb = HelperClass.CheckTypeIntWithRange(MinRangeSimultions, MaxRangeSimultions);
-                        SimulationMenu(menuNumb, ref arrayRegistres);
+                        if (firstOptionUsed)
+                        {
+                            Console.WriteLine(MsgNoMoreOption);
+                            flag = true; 
+                        }
+                        else
+                        {
+                            firstOptionUsed = true;
+                            Console.WriteLine(MsgSimulationMenu);
+                            menuNumb = HelperClass.CheckTypeIntWithRange(MinRangeSimultions, MaxRangeSimultions);
+                            SimulationMenu(menuNumb, ref arrayRegistres);
+                        }
                         break;
                     case 2:
                         Console.WriteLine(MsgResgistres);
@@ -60,6 +74,7 @@ namespace T3.PR1
                         flag = true;
                         break;
                 }
+                //Console.Clear();
             }
         }
         public static void SimulationMenu(int simulationTry, ref string[] arrayRegistres)
@@ -67,12 +82,12 @@ namespace T3.PR1
             arrayRegistres = ResizeArrays( ref arrayRegistres,  simulationTry);
 
             for (int i = 0; i < simulationTry; i++)
-                {
-                    Console.WriteLine(MsgEnergyMenu);
-                    int menuNumb = HelperClass.CheckTypeInt();
-                    EnergyMenu(menuNumb,arrayRegistres, i);
-                    Console.WriteLine();
-                }  
+            {
+                Console.WriteLine(MsgEnergyMenu);
+                int menuNumb = HelperClass.CheckTypeInt();
+                EnergyMenu(menuNumb, arrayRegistres, i);
+                Console.WriteLine();
+            }
         }
         public static void EnergyMenu(int menuNumb, string[] arrayRegistres, int contador)
         {
@@ -129,6 +144,7 @@ namespace T3.PR1
         {   const string Lines = "------------------------------------------------------------";
             const string Columns = "|                     |                   |                | \r\n|                     |                   |                |\r\n|                     |                   |                |";
             const string Names = "|         Data        |   Tipus energia   | Calcul Energia | ";
+
             Console.WriteLine(Lines);
             Console.WriteLine(Names);
             Console.WriteLine(Lines);
