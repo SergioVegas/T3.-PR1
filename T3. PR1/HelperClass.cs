@@ -82,7 +82,7 @@ namespace T3._PR1
         }
         public static void FillArray(double[] arrayDouble, double filler)
         {
-            arrayDouble[i] = filler;
+            
         }
         //No se si realment es util, per aixo no l'he implementat
         public static void CheckDate(string date)

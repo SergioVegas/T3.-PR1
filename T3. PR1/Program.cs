@@ -22,12 +22,15 @@ namespace T3.PR1
         const int ParametsOnMatrix = 2;
         public static void Main(string[] args)
         {
-            DateTime[] arrayDateSimulations = new DateTime[0];
-            string[] arrayTypeEnery = new string[0];
-            double[] arrayEnergyCalculated = new double[0];
-            InitialMenu();
+            string[] arrayRegistres = new string[0];
+            bool continueMenu = true;
+
+            while (continueMenu)
+            {
+                InitialMenu( ref arrayRegistres, ref continueMenu);
+            }
         }
-        public static void InitialMenu()
+        public static void InitialMenu(ref string[] arrayRegistres, ref bool continueMenu)
         {
             Console.WriteLine(MsgPresentation);
             Console.WriteLine(MsgMenuExplanation);
@@ -42,13 +45,15 @@ namespace T3.PR1
                     case 1:
                         Console.WriteLine(MsgSimulationMenu);
                         menuNumb = HelperClass.CheckTypeIntWithRange(MinRangeSimultions, MaxRangeSimultions);
-                        SimulationMenu(menuNumb);
+                        SimulationMenu(menuNumb, ref arrayRegistres);
                         break;
                     case 2:
                         Console.WriteLine(MsgResgistres);
+                        PrintRegistres(arrayRegistres);
                         break;
                     case 3:
                         Console.WriteLine(MsgOutApp);
+                        continueMenu = false;
                         break;
                     default:
                         Console.WriteLine(MsgErrorMenu);
@@ -57,26 +62,26 @@ namespace T3.PR1
                 }
             }
         }
-        public static void SimulationMenu(int simulationTry, DateTime[] arrayDateSimulations, string[] arrayTypeEnery, double[] arrayEnergyCalculated)
+        public static void SimulationMenu(int simulationTry, ref string[] arrayRegistres)
         {
-            ResizeArrays(arrayDateSimulations, arrayTypeEnery, arrayEnergyCalculated, simulationTry);
+            arrayRegistres = ResizeArrays( ref arrayRegistres,  simulationTry);
 
             for (int i = 0; i < simulationTry; i++)
                 {
                     Console.WriteLine(MsgEnergyMenu);
                     int menuNumb = HelperClass.CheckTypeInt();
-                    EnergyMenu(menuNumb);
+                    EnergyMenu(menuNumb,arrayRegistres, i);
                     Console.WriteLine();
                 }  
         }
-        public static void EnergyMenu(int menuNumb)
+        public static void EnergyMenu(int menuNumb, string[] arrayRegistres, int contador)
         {
             const string MsgSunHours = "Introdueix el numero d'hores de sol, que el sistema utilitzarà.";
             const string MsgWindSpeed = "Introdueix la velocitat del vent";
             const string MsgWaterFlow = "Introdueix la força del cabal de l'aigua";
             DateTime actualDate = DateTime.Now;
             bool flag = true;
-
+            double energyCalculated = 0;
 
             while (flag)
             {
@@ -86,50 +91,53 @@ namespace T3.PR1
                     case 1:
                         Console.WriteLine(MsgSunHours);
                         double sunHours = HelperClass.CheckTypeDouble();
-                        SolarSystem solarium = new SolarSystem(sunHours, actualDate);
-                        solarium.ShowEnergyCalculated(solarium.CalculateEnergy(sunHours));
+                        SolarSystem solarSheet = new SolarSystem(sunHours, actualDate);
+                        energyCalculated = Math.Round( solarSheet.CalculateEnergy(sunHours),2);
+                        solarSheet.ShowEnergyCalculated(energyCalculated);
+                        arrayRegistres[contador] = solarSheet.GetInfoRegistre(actualDate, energyCalculated);
                         break;
                     case 2:
                         Console.WriteLine(MsgWindSpeed);
                         double windVelocity = HelperClass.CheckTypeDouble();
-                        WindSystem wind = new WindSystem(windVelocity, actualDate);
-                        wind.ShowEnergyCalculated(wind.CalculateEnergy(windVelocity));
+                        WindSystem turbine = new WindSystem(windVelocity, actualDate);
+                        energyCalculated = Math.Round(turbine.CalculateEnergy(windVelocity), 2);
+                        turbine.ShowEnergyCalculated(turbine.CalculateEnergy(energyCalculated));
+                        arrayRegistres[contador] = turbine.GetInfoRegistre(actualDate, energyCalculated);
                         break;
                     case 3:
                         Console.WriteLine(MsgWaterFlow);
                         double waterFlow = HelperClass.CheckTypeDouble();
-                        HidroelectricSystem presa = new HidroelectricSystem(waterFlow, actualDate);
-                        presa.ShowEnergyCalculated(presa.CalculateEnergy(waterFlow));
+                        HidroelectricSystem dam = new HidroelectricSystem(waterFlow, actualDate);
+                        energyCalculated = Math.Round(dam.CalculateEnergy(waterFlow), 2);
+                        dam.ShowEnergyCalculated(energyCalculated);
+                        arrayRegistres[contador] = dam.GetInfoRegistre(actualDate, energyCalculated);
                         break;
                     default:
                         Console.WriteLine(MsgErrorMenu);
                         flag = true;
+                        menuNumb = HelperClass.CheckTypeInt();
                         break;
                 }
             }
         }
-        public static void FillArray()
+        public static string[] ResizeArrays( ref string[] arrayString, int newSize)
         {
-
-        }
-        public static void ResizeArrays(DateTime[] arrayDate, string[] arrayString, double[]arrayDouble, int newSize)
-        {
-            Array.Resize(ref arrayDate, arrayDate.Length + newSize);
             Array.Resize(ref arrayString, arrayString.Length + newSize);
-            Array.Resize(ref arrayDouble, arrayDouble.Length + newSize);
+            return arrayString;
         }
-        public static void CreateMatrix(int simulationTry)
-        {
-            EnergySystem[,] energySystems = new EnergySystem[simulationTry, ParametsOnMatrix];
-        }
-        public static void SaveRecordSimulation(int simulationTry, EnergySystem[,]energySystems, WindSystem wind)
-        {
-            for (int m = 0; m < simulationTry; m++)
+        public static void PrintRegistres( string [] arrayRegistres)
+        {   const string Lines = "------------------------------------------------------------";
+            const string Columns = "|                     |                   |                | \r\n|                     |                   |                |\r\n|                     |                   |                |";
+            const string Names = "|         Data        |   Tipus energia   | Calcul Energia | ";
+            Console.WriteLine(Lines);
+            Console.WriteLine(Names);
+            Console.WriteLine(Lines);
+            for (int i = 0; i < arrayRegistres.Length; i++)
             {
-                energySystems[m, 0] = wind.WindVelocity;
-                energySystems[m, 1] = wind.ToString();
-                energySystems[m, 2] = wind.
+                Console.WriteLine(arrayRegistres[i]);
             }
+            Console.WriteLine(Columns);
+            Console.WriteLine(Lines);
         }
     }
 }

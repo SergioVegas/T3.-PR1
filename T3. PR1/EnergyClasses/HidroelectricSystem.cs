@@ -41,9 +41,9 @@ namespace T3._PR1._Pràctica_1.EnegyClass
             Console.WriteLine();
             Console.WriteLine($"La energia calculada és {energy}");
         }
-        public override string ToString()
+        public string GetInfoRegistre (DateTime data, double resultenergy )
         {
-            return "Energia Hidraulica";
+            return $"| {data} |   Hidroelectric   |    {resultenergy} Juls    |";
         }
 
     }
