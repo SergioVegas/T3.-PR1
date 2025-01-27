@@ -18,7 +18,7 @@ namespace T3._PR1._Pràctica_1.EnegyClass
         }
         public double CalculateEnergy(double waterflow)
         {
-            return waterflow * 9.8 * 0.8;
+            return Math.Round(waterflow * 9.8 * 0.8, 2);
         }
         public override double CheckMinimumEnergySource(double windVelocity, double limit)
         {
@@ -39,7 +39,7 @@ namespace T3._PR1._Pràctica_1.EnegyClass
         public override void ShowEnergyCalculated(double energy)
         {
             Console.WriteLine();
-            Console.WriteLine($"La energia calculada és {energy}");
+            Console.WriteLine($"La energia calculada és {energy} Juls");
         }
         public string GetInfoRegistre (DateTime data, double resultenergy )
         {

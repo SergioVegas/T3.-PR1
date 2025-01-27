@@ -6,6 +6,7 @@ namespace T3.PR1
 {
     public static class RenovableEnergy
     {
+        const string Title = "   _      _      _      _      _      _      _      _      _      _      _      _      _      _   \r\n _( )_  _( )_  _( )_  _( )_  _( )_  _( )_  _( )_  _( )_  _( )_  _( )_  _( )_  _( )_  _( )_  _( )_ \r\n(_ o _)(_ o _)(_ o _)(_ o _)(_ o _)(_ o _)(_ o _)(_ o _)(_ o _)(_ o _)(_ o _)(_ o _)(_ o _)(_ o _)\r\n (_,_)  (_,_)  (_,_)  (_,_)  (_,_)  (_,_)  (_,_)  (_,_)  (_,_)  (_,_)  (_,_)  (_,_)  (_,_)  (_,_) \r\n   _                                                                                          _   \r\n _( )_                                                                                      _( )_ \r\n(_ o _)     ░█▀▀░█▀▀░█▀█░█▀▀░█▀█░█▀▀░█▀▄░█▀▀░█░█░░░█▀▀░█▀█░█░░░█░█░▀█▀░▀█▀░█▀█░█▀█░█▀▀     (_ o _)\r\n (_,_)      ░█▀▀░█░░░█░█░█▀▀░█░█░█▀▀░█▀▄░█░█░░█░░░░▀▀█░█░█░█░░░█░█░░█░░░█░░█░█░█░█░▀▀█      (_,_) \r\n   _        ░▀▀▀░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░▀░▀▀▀░░▀░░░░▀▀▀░▀▀▀░▀▀▀░▀▀▀░░▀░░▀▀▀░▀▀▀░▀░▀░▀▀▀        _   \r\n _( )_                                                                                      _( )_ \r\n(_ o _)                                                                                    (_ o _)\r\n (_,_)                                                                                      (_,_) \r\n   _      _      _      _      _      _      _      _      _      _      _      _      _      _   \r\n _( )_  _( )_  _( )_  _( )_  _( )_  _( )_  _( )_  _( )_  _( )_  _( )_  _( )_  _( )_  _( )_  _( )_ \r\n(_ o _)(_ o _)(_ o _)(_ o _)(_ o _)(_ o _)(_ o _)(_ o _)(_ o _)(_ o _)(_ o _)(_ o _)(_ o _)(_ o _)\r\n (_,_)  (_,_)  (_,_)  (_,_)  (_,_)  (_,_)  (_,_)  (_,_)  (_,_)  (_,_)  (_,_)  (_,_)  (_,_)  (_,_) ";
         const string MsgPresentation = "Benvingut al simulador d'energias renovables!\n" + "Creat per Sergio Vegas i EcoEnergy Systems";
         const string MsgMenuExplanation = "A continuació et donarem tres opcions per escollir, introdueix el numero corresponent a l'opció:\n" +
             "1. Iniciar simulació : Configurar un dels nostres sistemes d'energia.\n" +
@@ -24,7 +25,8 @@ namespace T3.PR1
         {
             string[] arrayRegistres = new string[0];
             bool continueMenu = true;
-
+            Console.WriteLine(Title);
+            Console.WriteLine();
             Console.WriteLine(MsgPresentation);
             Console.WriteLine();
 
@@ -56,6 +58,7 @@ namespace T3.PR1
                         else
                         {
                             firstOptionUsed = true;
+                            Console.Clear();
                             Console.WriteLine(MsgSimulationMenu);
                             menuNumb = HelperClass.CheckTypeIntWithRange(MinRangeSimultions, MaxRangeSimultions);
                             SimulationMenu(menuNumb, ref arrayRegistres);
@@ -74,7 +77,6 @@ namespace T3.PR1
                         flag = true;
                         break;
                 }
-                //Console.Clear();
             }
         }
         public static void SimulationMenu(int simulationTry, ref string[] arrayRegistres)
