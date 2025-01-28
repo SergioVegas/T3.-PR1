@@ -1,8 +1,6 @@
 
-using System;
 using T3.PR1;
-using T3._PR1._Pràctica_1.EnegyClass;
-using T3._PR1.EnergyClasses;
+using T3._PR1._Practica_1.EnegyClass;
 namespace UniTest_T3_PR1
 {
     public class Validator
@@ -125,6 +123,5 @@ namespace UniTest_T3_PR1
             Assert.NotEqual("Energy2", "Energy1");
             Assert.NotEqual("Energy1", "Energy2");
         }
-
     }
 }

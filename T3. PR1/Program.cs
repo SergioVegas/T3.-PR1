@@ -1,7 +1,7 @@
 ﻿using System;
 using T3._PR1;
 using T3.PR1;
-using T3._PR1._Pràctica_1.EnegyClass;
+using T3._PR1._Practica_1.EnegyClass;
 using T3._PR1.EnergyClasses;
 namespace T3.PR1
 {
