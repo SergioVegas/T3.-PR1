@@ -10,8 +10,12 @@ namespace T3._PR1._Pràctica_1.EnegyClass
     public  class SolarSystem : EnergySystem, IEnergyCalculate
     {
         private string minimumMsg = "Les hores de spñ  no poden ser menor a {0}, torna a introduïr un numero.";
-        private double limit = 1;
-        public double SunHours {  get; set; }
+        private double _limit = 1;
+        public double SunHours {
+            get {return SunHours;}
+            set
+            {
+                if (SunHours < _limit) throw new ArgumentException(minimumMsg);}}
         
         public SolarSystem(double sunHours, DateTime date) : base(date)
         {
@@ -20,23 +24,7 @@ namespace T3._PR1._Pràctica_1.EnegyClass
         public  double CalculateEnergy(double sunHours)
         {
             return Math.Round(SunHours * 1.5, 2);
-        }
-        public override double CheckMinimumEnergySource(double windVelocity, double limit)
-        {
-
-            bool flag = true;
-
-            while (flag)
-            {
-                flag = false;
-                if (windVelocity < limit)
-                {
-                    Console.WriteLine(minimumMsg, limit);
-                    flag = true;
-                }
-            }
-            return windVelocity;
-        }
+        }  
         public override void ShowEnergyCalculated(double energy)
         {
             Console.WriteLine();
