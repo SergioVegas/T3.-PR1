@@ -12,7 +12,6 @@ namespace T3._PR1._Pràctica_1.EnegyClass
 
         private string minimumMsg = "La velocitat del vent no pot ser menor a {0}, torna a introduir un número.";
         private double _limit =5;
-        private double _windVelocity = 0;
         public double WindVelocity { get; set; }
 
         public WindSystem (double windVelocity, DateTime date) : base(date)

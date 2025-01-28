@@ -187,6 +187,7 @@ namespace T3.PR1
             solarSheet.ShowEnergyCalculated(energyCalculated);
             arrayRegistres[contador] = solarSheet.GetInfoRegistre(actualDate, energyCalculated);
         }
+
       
     }
 }

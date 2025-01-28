@@ -47,5 +47,37 @@ namespace UniTest_T3_PR1
             // Assert
             Assert.Equal(200, energy);
         }
+        [Fact]
+        public void ResizeArraysCorrectly()
+        {
+            // Arrange
+            string[] array = new string[2] { "Energy1", "Energy2" };
+            int newSize = 2;
+
+            // Act
+            string[] resizedArray = RenovableEnergy.ResizeArrays(ref array, newSize);
+
+            // Assert
+            Assert.Equal(4, resizedArray.Length);
+        }
+        [Fact]
+        public void PrintRegistres_ShouldPrintCorrectly()
+        {
+            // Arrange
+            var arrayRegistres = new string[2] { "Entry1", "Entry2" };
+
+            using (var sw = new StringWriter())
+            {
+                Console.SetOut(sw);
+
+                // Act
+                RenovableEnergy.PrintRegistres(arrayRegistres);
+
+                // Assert
+                var result = sw.ToString();
+                Assert.Contains("Entry1", result);
+                Assert.Contains("Entry2", result);
+            }
+        }
     }
 }
