@@ -1,3 +1,4 @@
 # T3. PR1
 ## UseChart Diagram
-![image](https://github.com/user-attachments/assets/8bc9dbf7-ef10-4754-a5e7-2681e827cddc)
+
+![Captura de pantalla (26)](https://github.com/user-attachments/assets/2df935a6-3900-4dc5-9dec-3fff9588a830)
