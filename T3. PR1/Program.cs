@@ -23,7 +23,7 @@ namespace T3.PR1
 
         public static void Main(string[] args)
         {
-            string[] arrayRegistres = new string[0];
+            string[] arrayRegistres = new string[1];
             bool continueMenu = true;
             Presentation();
             while (continueMenu)
