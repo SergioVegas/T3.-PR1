@@ -3,7 +3,7 @@
 
 ![Captura de pantalla (26)](https://github.com/user-attachments/assets/2df935a6-3900-4dc5-9dec-3fff9588a830)
 
-##Bibliografia:
+## Bibliografia:
 https://learn.microsoft.com/es-es/dotnet/api/system.datetime.now?view=net-9.0 ["DateTime.Now Propiedad"] [26/01/2025][Autor anonim]
 
 https://www.asciiart.eu/text-to-ascii-art ["Text to Asci art"] [27/01/2025] [Autor anonim]
