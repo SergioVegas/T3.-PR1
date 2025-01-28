@@ -13,12 +13,12 @@ namespace T3.PR1
             "1. Iniciar simulació : Configurar un dels nostres sistemes d'energia.\n" +
             "2. Veure els informes de les simulacions fetes.\n" +
             "3. Sortir de la aplicació";
-        const string MsgEnergyMenu =  "Pot escollir entre les següents energies, posant el numero corresponent:\n 1.Solar\n 2.Eolica\n 3.Hidraulica.";
-        const string MsgSimulationMenu = "Has escollit iniciar una simulació!\n" + "Cuantes simulacions vols fer? Introdueix un nombre enter entre 1 i 100.";
+        const string MsgEnergyMenu = "Pot escollir entre les següents energies, posant el numero corresponent:\n 1.Solar\n 2.Eolica\n 3.Hidràulica.";
+        const string MsgSimulationMenu = "Has escollit iniciar una simulació!\n" + "Quantes simulacions vols fer? Introdueix un nombre enter entre 1 i 100.";
         const string MsgResgistres = "Aquest son els registres de les simulacions fetes.";
         const string MsgOutApp = "Moltes gràcies per participar en la nostra aplicació! :)";
-        const string MsgErrorMenu = "Aquest numero no es cap de les opcions.";
-        const string MsgNoMoreOption = "La primera opció ja s'ha utilitzat. Si us plau, selecciona una altra opció.\nSi vols fer més simulacions surt i torna a inciar una simulació. ";
+        const string MsgErrorMenu = "Aquest número no es cap de les opcions.";
+        const string MsgNoMoreOption = "La primera opció ja s'ha utilitzat. Si us plau, selecciona una altra opció.\nSi vols fer més simulacions surt i torna a iniciar una simulació.";
         static bool firstOptionUsed = false;
 
         public static void Main(string[] args)
@@ -134,7 +134,7 @@ namespace T3.PR1
         {
             const string Lines = "------------------------------------------------------------";
             const string Columns = "|                     |                   |                | \r\n|                     |                   |                |\r\n|                     |                   |                |";
-            const string Names = "|         Data        |   Tipus energia   | Calcul Energia | ";
+            const string Names = "|         Data        |   Tipus energia   | Càlcul Energia | ";
 
             Console.WriteLine(Lines);
             Console.WriteLine(Names);
@@ -176,7 +176,7 @@ namespace T3.PR1
         }
         public static void SolarEnergyAct(int contador, ref string[] arrayRegistres)
         {
-            const string MsgSunHours = "Introdueix el numero d'hores de sol, que el sistema utilitzarà.";
+            const string MsgSunHours = "Introdueix el número d'hores de sol, que el sistema utilitzarà.";
             DateTime actualDate = DateTime.Now;
             double energyCalculated = 0;
 

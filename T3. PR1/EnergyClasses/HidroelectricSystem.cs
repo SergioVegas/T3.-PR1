@@ -9,7 +9,7 @@ namespace T3._PR1._Pràctica_1.EnegyClass
 {
     public class HidroelectricSystem : EnergySystem, IEnergyCalculate
     {
-        private string minimumMsg = "El caudal de l'aigua no pot ser menor a 20 , torna a introduïr un numero.";
+        private string minimumMsg = "El caudal de l'aigua no pot ser menor a {0}, torna a introduir un número.";
         private double _limit = 20;
         public double WaterFlow {  get; set; }       
         public HidroelectricSystem(double waterFlow, DateTime date): base(date)
@@ -33,7 +33,7 @@ namespace T3._PR1._Pràctica_1.EnegyClass
         }
         public string GetInfoRegistre (DateTime data, double resultenergy )
         {
-            return $"| {data}  |   Hidroelectric   |    {resultenergy} Juls    |";
+            return $"| {data}  |   Hidroelèctric   |    {resultenergy} Juls    |";
         }
 
     }

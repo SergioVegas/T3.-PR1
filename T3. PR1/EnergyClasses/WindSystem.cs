@@ -10,7 +10,7 @@ namespace T3._PR1._Pràctica_1.EnegyClass
     public class WindSystem : EnergySystem, IEnergyCalculate
     {
 
-        private string minimumMsg = "La velocitat del vent no pot ser menor a {0}, torna a introduïr un numero.";
+        private string minimumMsg = "La velocitat del vent no pot ser menor a {0}, torna a introduir un número.";
         private double _limit =5;
         private double _windVelocity = 0;
         public double WindVelocity { get; set; }
