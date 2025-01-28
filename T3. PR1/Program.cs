@@ -2,6 +2,7 @@
 using T3._PR1;
 using T3.PR1;
 using T3._PR1._Pràctica_1.EnegyClass;
+using T3._PR1.EnergyClasses;
 namespace T3.PR1
 {
     public static class RenovableEnergy
@@ -46,6 +47,7 @@ namespace T3.PR1
             while (flag)
             {
                 int menuNumb = HelperClass.CheckTypeInt();
+                Console.WriteLine();
                 flag = false;
                 switch (menuNumb)
                 {
@@ -93,12 +95,7 @@ namespace T3.PR1
         }
         public static void EnergyMenu(int menuNumb, string[] arrayRegistres, int contador)
         {
-            const string MsgSunHours = "Introdueix el numero d'hores de sol, que el sistema utilitzarà.";
-            const string MsgWindSpeed = "Introdueix la velocitat del vent";
-            const string MsgWaterFlow = "Introdueix la força del cabal de l'aigua";
-            DateTime actualDate = DateTime.Now;
             bool flag = true;
-            double energyCalculated = 0;
 
             while (flag)
             {
@@ -106,28 +103,13 @@ namespace T3.PR1
                 switch (menuNumb)
                 {
                     case 1:
-                        Console.WriteLine(MsgSunHours);
-                        double sunHours = HelperClass.CheckTypeDouble();
-                        SolarSystem solarSheet = new SolarSystem(sunHours, actualDate);
-                        energyCalculated = Math.Round( solarSheet.CalculateEnergy(sunHours),2);
-                        solarSheet.ShowEnergyCalculated(energyCalculated);
-                        arrayRegistres[contador] = solarSheet.GetInfoRegistre(actualDate, energyCalculated);
+                        SolarEnergyAct(contador, ref arrayRegistres);
                         break;
                     case 2:
-                        Console.WriteLine(MsgWindSpeed);
-                        double windVelocity = HelperClass.CheckTypeDouble();
-                        WindSystem turbine = new WindSystem(windVelocity, actualDate);
-                        energyCalculated = Math.Round(turbine.CalculateEnergy(windVelocity), 2);
-                        turbine.ShowEnergyCalculated(turbine.CalculateEnergy(energyCalculated));
-                        arrayRegistres[contador] = turbine.GetInfoRegistre(actualDate, energyCalculated);
+                        WindEnergyAct(contador, ref arrayRegistres);
                         break;
                     case 3:
-                        Console.WriteLine(MsgWaterFlow);
-                        double waterFlow = HelperClass.CheckTypeDouble();
-                        HidroelectricSystem dam = new HidroelectricSystem(waterFlow, actualDate);
-                        energyCalculated = Math.Round(dam.CalculateEnergy(waterFlow), 2);
-                        dam.ShowEnergyCalculated(energyCalculated);
-                        arrayRegistres[contador] = dam.GetInfoRegistre(actualDate, energyCalculated);
+                        HidroElectricEnergyAct(contador, ref arrayRegistres);
                         break;
                     default:
                         Console.WriteLine(MsgErrorMenu);
@@ -136,6 +118,47 @@ namespace T3.PR1
                         break;
                 }
             }
+        }
+
+        public static void HidroElectricEnergyAct(int contador, ref string[] arrayRegistres)
+        {
+            const string MsgWaterFlow = "Introdueix la força del cabal de l'aigua";
+            DateTime actualDate = DateTime.Now;
+            double energyCalculated = 0;
+
+            Console.WriteLine(MsgWaterFlow);
+            double waterFlow = HelperClass.CheckTypeDouble();
+            HidroelectricSystem dam = new HidroelectricSystem(waterFlow, actualDate);
+            energyCalculated = Math.Round(dam.CalculateEnergy(waterFlow), 2);
+            dam.ShowEnergyCalculated(energyCalculated);
+            arrayRegistres[contador] = dam.GetInfoRegistre(actualDate, energyCalculated);
+        }
+        public static void WindEnergyAct(int contador, ref string[] arrayRegistres)
+        {
+            const string MsgWindSpeed = "Introdueix la velocitat del vent";
+            DateTime actualDate = DateTime.Now;
+            double energyCalculated = 0;
+
+
+            Console.WriteLine(MsgWindSpeed);
+            double windVelocity = HelperClass.CheckTypeDouble();
+            WindSystem turbine = new WindSystem(windVelocity, actualDate);
+            energyCalculated = Math.Round(turbine.CalculateEnergy(windVelocity), 2);
+            turbine.ShowEnergyCalculated(turbine.CalculateEnergy(energyCalculated));
+            arrayRegistres[contador] = turbine.GetInfoRegistre(actualDate, energyCalculated);
+        }
+        public static void SolarEnergyAct(int contador, ref string[] arrayRegistres)
+        {
+            const string MsgSunHours = "Introdueix el numero d'hores de sol, que el sistema utilitzarà.";
+            DateTime actualDate = DateTime.Now;
+            double energyCalculated = 0;
+
+            Console.WriteLine(MsgSunHours);
+            double sunHours = HelperClass.CheckTypeDouble();
+            SolarSystem solarSheet = new SolarSystem(sunHours, actualDate);
+            energyCalculated = Math.Round(solarSheet.CalculateEnergy(sunHours), 2);
+            solarSheet.ShowEnergyCalculated(energyCalculated);
+            arrayRegistres[contador] = solarSheet.GetInfoRegistre(actualDate, energyCalculated);
         }
         public static string[] ResizeArrays( ref string[] arrayString, int newSize)
         {

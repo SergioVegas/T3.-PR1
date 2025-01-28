@@ -43,7 +43,7 @@ namespace T3._PR1._Pràctica_1.EnegyClass
         }
         public string GetInfoRegistre (DateTime data, double resultenergy )
         {
-            return $"| {data} |   Hidroelectric   |    {resultenergy} Juls    |";
+            return $"| {data}  |   Hidroelectric   |    {resultenergy} Juls    |";
         }
 
     }
