@@ -9,16 +9,18 @@ namespace T3._PR1._Pràctica_1.EnegyClass
 {
     public  class SolarSystem : EnergySystem, IEnergyCalculate
     {
-        private string minimumMsg = "Les hores de spñ  no poden ser menor a {0}, torna a introduïr un numero.";
+        private string minimumMsg = "Les hores de sol no poden ser menor a {0}, torna a introduïr un numero.";
         private double _limit = 1;
-        public double SunHours {
-            get {return SunHours;}
-            set
-            {
-                if (SunHours < _limit) throw new ArgumentException(minimumMsg);}}
-        
+        public double SunHours { get; set; }
+         
         public SolarSystem(double sunHours, DateTime date) : base(date)
         {
+            while (sunHours < _limit)
+            {
+                Console.WriteLine(string.Format(minimumMsg, _limit));
+                Console.WriteLine();
+                sunHours = HelperClass.CheckTypeDouble();
+            }
             SunHours = sunHours;
         }
         public  double CalculateEnergy(double sunHours)

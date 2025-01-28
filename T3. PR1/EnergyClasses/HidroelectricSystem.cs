@@ -11,17 +11,15 @@ namespace T3._PR1._Pràctica_1.EnegyClass
     {
         private string minimumMsg = "El caudal de l'aigua no pot ser menor a 20 , torna a introduïr un numero.";
         private double _limit = 20;
-        public double WaterFlow
-        {
-            get { return WaterFlow; }
-            set
-            {
-                if (WaterFlow < _limit) throw new ArgumentException(minimumMsg);
-            }
-        }
-                
+        public double WaterFlow {  get; set; }       
         public HidroelectricSystem(double waterFlow, DateTime date): base(date)
         {
+            while (waterFlow < _limit)
+            {
+                Console.WriteLine(string.Format(minimumMsg, _limit));
+                Console.WriteLine();
+                waterFlow = HelperClass.CheckTypeDouble();
+            }
             WaterFlow = waterFlow;
         }
         public double CalculateEnergy(double waterflow)

@@ -12,13 +12,17 @@ namespace T3._PR1._Pràctica_1.EnegyClass
 
         private string minimumMsg = "La velocitat del vent no pot ser menor a {0}, torna a introduïr un numero.";
         private double _limit =5;
-        public double WindVelocity {
-            get {return WindVelocity;}
-            set { if (WindVelocity < _limit) throw new ArgumentException(minimumMsg); }
-        }
+        private double _windVelocity = 0;
+        public double WindVelocity { get; set; }
 
         public WindSystem (double windVelocity, DateTime date) : base(date)
         {
+            while (windVelocity < _limit)
+            {
+                Console.WriteLine(string.Format(minimumMsg, _limit));
+                Console.WriteLine();
+                windVelocity = HelperClass.CheckTypeDouble();
+            }
             WindVelocity = windVelocity;
         }
         public  double CalculateEnergy( double windVelocity)

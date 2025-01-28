@@ -23,11 +23,7 @@ namespace T3.PR1
         {
             string[] arrayRegistres = new string[0];
             bool continueMenu = true;
-            Console.WriteLine(Title);
-            Console.WriteLine();
-            Console.WriteLine(MsgPresentation);
-            Console.WriteLine();
-
+            Presentation();
             while (continueMenu)
             {
                 InitialMenu( ref arrayRegistres, ref continueMenu);
@@ -79,6 +75,16 @@ namespace T3.PR1
                         break;
                 }
             }
+        }
+        public static void Presentation()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine(Title);
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(MsgPresentation);
+            Console.WriteLine();
+
         }
         public static void SimulationMenu(int simulationTry, ref string[] arrayRegistres)
         {
