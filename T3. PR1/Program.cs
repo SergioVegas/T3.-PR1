@@ -17,11 +17,8 @@ namespace T3.PR1
         const string MsgSimulationMenu = "Has escollit iniciar una simulació!\n" + "Cuantes simulacions vols fer? Introdueix un nombre enter entre 1 i 100.";
         const string MsgResgistres = "Aquest son els registres de les simulacions fetes.";
         const string MsgOutApp = "Moltes gràcies per participar en la nostra aplicació! :)";
-        const string MsgNoNegative = " Aquest numero no pot ser inferior a 0!";
         const string MsgErrorMenu = "Aquest numero no es cap de les opcions.";
-        const int MaxRangeSimultions = 100;
-        const int MinRangeSimultions = 1;
-        const int ParametsOnMatrix = 2;
+
         public static void Main(string[] args)
         {
             string[] arrayRegistres = new string[0];
@@ -39,6 +36,8 @@ namespace T3.PR1
         public static void InitialMenu(ref string[] arrayRegistres, ref bool continueMenu)
         {
             const string MsgNoMoreOption = "La primera opció ja s'ha utilitzat. Si us plau, selecciona una altra opció.";
+            const int MaxRangeSimultions = 100;
+            const int MinRangeSimultions = 1;
 
             Console.WriteLine(MsgMenuExplanation);
             Console.WriteLine();
@@ -119,7 +118,28 @@ namespace T3.PR1
                 }
             }
         }
+        public static string[] ResizeArrays(ref string[] arrayString, int newSize)
+        {
+            Array.Resize(ref arrayString, arrayString.Length + newSize);
+            return arrayString;
+        }
+        public static void PrintRegistres(string[] arrayRegistres)
+        {
+            const string Lines = "------------------------------------------------------------";
+            const string Columns = "|                     |                   |                | \r\n|                     |                   |                |\r\n|                     |                   |                |";
+            const string Names = "|         Data        |   Tipus energia   | Calcul Energia | ";
 
+            Console.WriteLine(Lines);
+            Console.WriteLine(Names);
+            Console.WriteLine(Lines);
+            for (int i = 0; i < arrayRegistres.Length; i++)
+            {
+                Console.WriteLine(arrayRegistres[i]);
+            }
+            Console.WriteLine(Columns);
+            Console.WriteLine(Lines);
+        }
+        //Funcions on s'instancien els objectes i es fan el cálcul de l'energia i es magatzema.
         public static void HidroElectricEnergyAct(int contador, ref string[] arrayRegistres)
         {
             const string MsgWaterFlow = "Introdueix la força del cabal de l'aigua";
@@ -160,25 +180,6 @@ namespace T3.PR1
             solarSheet.ShowEnergyCalculated(energyCalculated);
             arrayRegistres[contador] = solarSheet.GetInfoRegistre(actualDate, energyCalculated);
         }
-        public static string[] ResizeArrays( ref string[] arrayString, int newSize)
-        {
-            Array.Resize(ref arrayString, arrayString.Length + newSize);
-            return arrayString;
-        }
-        public static void PrintRegistres( string [] arrayRegistres)
-        {   const string Lines = "------------------------------------------------------------";
-            const string Columns = "|                     |                   |                | \r\n|                     |                   |                |\r\n|                     |                   |                |";
-            const string Names = "|         Data        |   Tipus energia   | Calcul Energia | ";
-
-            Console.WriteLine(Lines);
-            Console.WriteLine(Names);
-            Console.WriteLine(Lines);
-            for (int i = 0; i < arrayRegistres.Length; i++)
-            {
-                Console.WriteLine(arrayRegistres[i]);
-            }
-            Console.WriteLine(Columns);
-            Console.WriteLine(Lines);
-        }
+      
     }
 }

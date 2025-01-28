@@ -20,7 +20,7 @@ namespace T3._PR1._Pràctica_1.EnegyClass
         {
             return Math.Round(waterflow * 9.8 * 0.8, 2);
         }
-        public override double CheckMinimumEnergySource(double windVelocity, double limit)
+        public override double CheckMinimumEnergySource(double windVelocity)
         {
 
             bool flag = true;
