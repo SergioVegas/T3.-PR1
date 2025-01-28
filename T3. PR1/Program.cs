@@ -171,7 +171,7 @@ namespace T3.PR1
             double windVelocity = HelperClass.CheckTypeDouble();
             WindSystem turbine = new WindSystem(windVelocity, actualDate);
             energyCalculated = Math.Round(turbine.CalculateEnergy(windVelocity), 2);
-            turbine.ShowEnergyCalculated(turbine.CalculateEnergy(energyCalculated));
+            turbine.ShowEnergyCalculated(energyCalculated);
             arrayRegistres[contador] = turbine.GetInfoRegistre(actualDate, energyCalculated);
         }
         public static void SolarEnergyAct(int contador, ref string[] arrayRegistres)
