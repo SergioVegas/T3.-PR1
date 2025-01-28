@@ -18,6 +18,8 @@ namespace T3.PR1
         const string MsgResgistres = "Aquest son els registres de les simulacions fetes.";
         const string MsgOutApp = "Moltes gràcies per participar en la nostra aplicació! :)";
         const string MsgErrorMenu = "Aquest numero no es cap de les opcions.";
+        const string MsgNoMoreOption = "La primera opció ja s'ha utilitzat. Si us plau, selecciona una altra opció.\nSi vols fer més simulacions surt i torna a inciar una simulació. ";
+        static bool firstOptionUsed = false;
 
         public static void Main(string[] args)
         {
@@ -31,13 +33,12 @@ namespace T3.PR1
         }
         public static void InitialMenu(ref string[] arrayRegistres, ref bool continueMenu)
         {
-            const string MsgNoMoreOption = "La primera opció ja s'ha utilitzat. Si us plau, selecciona una altra opció.";
             const int MaxRangeSimultions = 100;
             const int MinRangeSimultions = 1;
 
             Console.WriteLine(MsgMenuExplanation);
             Console.WriteLine();
-            bool firstOptionUsed = false;
+          
             bool flag = true;
             while (flag)
             {
