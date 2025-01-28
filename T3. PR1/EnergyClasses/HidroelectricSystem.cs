@@ -22,9 +22,9 @@ namespace T3._PR1._Pràctica_1.EnegyClass
             }
             WaterFlow = waterFlow;
         }
-        public double CalculateEnergy(double waterflow)
+        public double CalculateEnergy(double energy)
         {
-            return Math.Round(waterflow * 9.8 * 0.8, 2);
+            return Math.Round(energy * 9.8 * 0.8, 2);
         }
         public override void ShowEnergyCalculated(double energy)
         {

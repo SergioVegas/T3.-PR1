@@ -23,9 +23,9 @@ namespace T3._PR1._Pràctica_1.EnegyClass
             }
             SunHours = sunHours;
         }
-        public  double CalculateEnergy(double sunHours)
+        public  double CalculateEnergy(double energy)
         {
-            return Math.Round(SunHours * 1.5, 2);
+            return Math.Round(energy * 1.5, 2);
         }  
         public override void ShowEnergyCalculated(double energy)
         {
